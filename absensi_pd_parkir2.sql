@@ -38,7 +38,8 @@ INSERT INTO `absen_pegawai` (`id`, `tgl_absen`, `nip`, `location`, `tgl_pulang`)
 	(11, '2019-03-25 16:58:09', '3322444', '-8.6116728,116.1116247', '2019-03-25 17:46:37'),
 	(12, '2019-03-25 17:29:17', '2000000', '-8.6116768,116.1116273', NULL),
 	(13, '2019-03-25 17:46:13', '3322444', '-8.6116728,116.1116247', '2019-03-25 17:46:37'),
-	(14, '2019-03-25 17:56:11', '2000000', '-8.6116728,116.1116247', NULL);
+	(14, '2019-03-25 17:56:11', '2000000', '-8.6116728,116.1116247', NULL),
+	(15, '2021-03-16 07:23:32', '3322444', '-8.5814941,116.0910878', '2021-03-16 07:26:23');
 /*!40000 ALTER TABLE `absen_pegawai` ENABLE KEYS */;
 
 -- Dumping structure for table absensi.akses
@@ -79,7 +80,35 @@ INSERT INTO `akses` (`username`, `kd_menu`) VALUES
 	('ngurah', 'mn25'),
 	('ngurah', 'mn26'),
 	('ngurah', 'mn3'),
-	('ngurah', 'mn31');
+	('ngurah', 'mn31'),
+	('gudanta', 'mn1'),
+	('gudanta', 'mn11'),
+	('gudanta', 'mn12'),
+	('gudanta', 'mn13'),
+	('gudanta', 'mn14'),
+	('gudanta', 'mn19'),
+	('gudanta', 'mn2'),
+	('gudanta', 'mn22'),
+	('gudanta', 'mn23'),
+	('gudanta', 'mn24'),
+	('gudanta', 'mn25'),
+	('gudanta', 'mn26'),
+	('gudanta', 'mn3'),
+	('gudanta', 'mn31'),
+	('zanul', 'mn1'),
+	('zanul', 'mn11'),
+	('zanul', 'mn12'),
+	('zanul', 'mn13'),
+	('zanul', 'mn14'),
+	('zanul', 'mn19'),
+	('zanul', 'mn2'),
+	('zanul', 'mn22'),
+	('zanul', 'mn23'),
+	('zanul', 'mn24'),
+	('zanul', 'mn25'),
+	('zanul', 'mn26'),
+	('zanul', 'mn3'),
+	('zanul', 'mn31');
 /*!40000 ALTER TABLE `akses` ENABLE KEYS */;
 
 -- Dumping structure for table absensi.api
@@ -87,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `api` (
   `hit` int(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
--- Dumping data for table absensi.api: ~0 rows (approximately)
+-- Dumping data for table absensi.api: ~1 rows (approximately)
 /*!40000 ALTER TABLE `api` DISABLE KEYS */;
 INSERT INTO `api` (`hit`) VALUES
 	(8);
@@ -193,7 +222,9 @@ INSERT INTO `data_wajah` (`nip`, `face_id`) VALUES
 	('201003260', 'ef05503c-3f94-42d6-b6c2-37064b3fc097'),
 	('200001167', 'df595ee6-174f-4316-a770-df5bb9f0303f'),
 	('3322444', 'e92bab79-d645-4891-a738-d90018bd31ec'),
-	('2000000', '841b522e-7eb1-4eac-8035-25aa6a203288');
+	('2000000', '841b522e-7eb1-4eac-8035-25aa6a203288'),
+	('3322444', 'PDPARKIR_3322444.jpg'),
+	('3322444', 'PDPARKIR_3322444.jpg');
 /*!40000 ALTER TABLE `data_wajah` ENABLE KEYS */;
 
 -- Dumping structure for table absensi.golongan
@@ -298,7 +329,8 @@ CREATE TABLE IF NOT EXISTS `izin_pegawai` (
 /*!40000 ALTER TABLE `izin_pegawai` DISABLE KEYS */;
 INSERT INTO `izin_pegawai` (`id`, `tgl_mohon`, `nip`, `ket_absen`, `keterangan`, `tgl_mulai`, `tgl_selesai`, `status`, `file`, `status_notif`) VALUES
 	(1, '2019-03-21 18:32:18', '3322444', 'Izin', 'Sakit', '2019-03-21', '2019-03-22', 1, '20190321_183216.jpg', 0),
-	(2, '2019-03-22 09:17:28', '5454', 'Izin', 'sakit', '2019-03-22', '2019-03-31', 1, '20190322_091723.jpg', 0);
+	(2, '2019-03-22 09:17:28', '5454', 'Izin', 'sakit', '2019-03-22', '2019-03-31', 1, '20190322_091723.jpg', 0),
+	(3, '2021-03-16 07:10:56', '3322444', 'Sakit', 'jj', '2021-03-01', '2021-03-31', 0, '20210316_151053.jpg', 0);
 /*!40000 ALTER TABLE `izin_pegawai` ENABLE KEYS */;
 
 -- Dumping structure for table absensi.jenis_absen
@@ -322,7 +354,7 @@ CREATE TABLE IF NOT EXISTS `konfigurasi` (
   `jam_pulang` time DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
--- Dumping data for table absensi.konfigurasi: ~0 rows (approximately)
+-- Dumping data for table absensi.konfigurasi: ~1 rows (approximately)
 /*!40000 ALTER TABLE `konfigurasi` DISABLE KEYS */;
 INSERT INTO `konfigurasi` (`jam_masuk`, `jam_toleransi`, `min_to_update`, `jam_pulang`) VALUES
 	('07:20:00', '07:45:00', 30, '15:20:00');
@@ -376,14 +408,15 @@ CREATE TABLE IF NOT EXISTS `lokasi` (
   PRIMARY KEY (`id_lokasi`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
--- Dumping data for table absensi.lokasi: ~4 rows (approximately)
+-- Dumping data for table absensi.lokasi: ~5 rows (approximately)
 /*!40000 ALTER TABLE `lokasi` DISABLE KEYS */;
 INSERT INTO `lokasi` (`id_lokasi`, `keterangan`, `koordinat`) VALUES
 	(8, 'kantor pd parkir', '[[-8.673484,115.239785],[-8.6735,115.240096],[-8.673865,115.240086],[-8.673844,115.239791],[-8.673484,115.239785]]'),
 	(9, 'rumah bang jamil', '[[-8.613247,116.110908],[-8.613183,116.113778],[-8.611342,116.113676],[-8.610242,116.113021],[-8.610634,116.110114],[-8.613247,116.110908]]'),
 	(10, 'balai wali kota', '[[-8.586837,116.11043],[-8.587713,116.110189],[-8.587564,116.11145],[-8.58688,116.111337],[-8.586837,116.11043]]'),
 	(11, 'Lapangan Lumintang', '[[-8.637291,115.212046],[-8.636771,115.213537],[-8.63885,115.213537],[-8.638808,115.212046],[-8.637291,115.212046]]'),
-	(12, 'Lokasi Tes UjiCoba', '[[-8.548611,116.076736],[-8.571697,116.290283],[-8.654523,116.312256],[-8.704753,116.1763],[-8.691856,116.077423],[-8.624653,116.077423],[-8.548611,116.076736]]');
+	(12, 'Lokasi Tes UjiCoba', '[[-8.548611,116.076736],[-8.571697,116.290283],[-8.654523,116.312256],[-8.704753,116.1763],[-8.691856,116.077423],[-8.624653,116.077423],[-8.548611,116.076736]]'),
+	(13, 'Lombok', '[[-8.283522,116.106262],[-8.335159,116.72699],[-8.796868,116.559448],[-8.899996,116.30127],[-8.83758,115.949707],[-8.283522,116.106262]]');
 /*!40000 ALTER TABLE `lokasi` ENABLE KEYS */;
 
 -- Dumping structure for table absensi.menu
@@ -407,7 +440,6 @@ INSERT INTO `menu` (`kd_menu`, `nm_menu`, `status`, `kd_parent`, `controller`, `
 	('mn14', 'Lokasi', 0, 'mn1', 'Lokasi', '-'),
 	('mn19', 'Hak Akses', 0, 'mn1', 'HakAkses', '-'),
 	('mn2', 'Aplikasi', 1, '-', 'Aplikasi', 'i-Dropbox'),
-	('mn21', 'Live Location', 0, 'mn2', 'Live', '-'),
 	('mn22', 'Pengumuman', 0, 'mn2', 'Pengumuman', '-'),
 	('mn23', 'Data Absensi', 0, 'mn2', 'Absensi', '-'),
 	('mn24', 'Pengajuan Izin', 0, 'mn2', 'Izin', '-'),
@@ -433,14 +465,14 @@ CREATE TABLE IF NOT EXISTS `pegawai` (
   PRIMARY KEY (`id_pegawai`,`nip`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=98 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
--- Dumping data for table absensi.pegawai: ~81 rows (approximately)
+-- Dumping data for table absensi.pegawai: ~88 rows (approximately)
 /*!40000 ALTER TABLE `pegawai` DISABLE KEYS */;
 INSERT INTO `pegawai` (`id_pegawai`, `nip`, `nm_pegawai`, `gol`, `user_app`, `pass_app`, `imei`, `last_location`, `token`, `id_lokasi`, `id_shift`) VALUES
 	(1, '30099', 'AA Ngurah Agung Gudanta, SH', 'C4', 'gudanta', '131313', '868937036208977', NULL, 'e_3gNxS9aRs:APA91bGzQXw1ODjCr3b-CoyfEoFaejAZW4ZiX-gEBmJydeit0ApaWhuo9ub_CKILGNe3BrWfqMOUXXWeGdboYp0T7wIqRBhdfstMXRdJaLQ3zAEkJ30qoFsz7ulxjfj1-O8Bl1BPh5v4', 8, 0),
 	(2, '30145', 'Putu Restu Jaya Atmaja, SE', 'C3', 'restu', '123456', '865592034627687', NULL, 'eKdFUOG5XLQ:APA91bFYd-pDWIMuFr0s0VKp8BUTI4pjm4dEHyxNlytGNl6MmWh34_Eh4rdGAYa3omXkdcJUs-vpM8c-ewo2gvzTyIXEo8RBjvNTB_1Vo4tW00mIkzhKZzllsFX5cxmKtR6KfPSg08LU', 8, 0),
 	(3, '30048', 'I Gede Ngurah Ardana, SE', 'C4', 'ngurah', 'setan212', '865262044366318', NULL, 'fvJmfrpqAmI:APA91bFusvAp3LX4YMo3rFLloPxiXx6juGbZDnm1X1Ecj6eFBjBp493ErS7wTDIDA3aIb4zu7SxAiomANpz6Ut46YW9G18B7AmBT-TKfhO_XHUQsSGVEW7HOyk4LgqIp8M4gfprCivIl', 8, 0),
 	(4, '30081', 'I Dewa Gede Putra Luhur Wiradnyana, SE', 'C4', 'putraluhur', '211221', '863195036954141', NULL, NULL, 8, 0),
-	(5, '3322444', 'Zanul H', 'C4', 'zanul', '123', '869167037217822', '-8.6116728,116.1116247', 'f5EeLWO8gvg:APA91bGeCVNjZfrZaTfy1-183xpxov7dKE4e5bG1QR_b7xy74H9MVgAsTvnvLm13UiTBnbAzXelO5q_G23Vx2_R1GaJB1Zni4Zx8VrzR8aEqL1haeMFidFKve0a7-xWRfZZLd8mTSaUr', 9, 1),
+	(5, '3322444', 'Zanul H', 'C4', 'zanul', '123', '862384047856344', '-8.6116728,116.1116247', 'f-Jg2twlFPs:APA91bHfxtjJf9kFp4T8TXziZrgjMIRF0H0nc7S2cKKR3iJRWEM0MK8zaI3f7bdJeI5uY-hXt0hJF8ejtoFmD1Inl9lbLSVi4jBoPFeG7R4-TGJFJ7be4uMR4-BIm6Iql9qMTfBa0uXr', 13, 1),
 	(7, '2000000', 'Ahmad Mujamil', 'C4', 'jamil', '123', '863195037582180', '-8.611933, 116.111248', 'fVE4D4Ak8xs:APA91bGBmpE9DunW4euEKr9MOTsgKuhvykkxlWMUZjtPGkVosaMcdAdcS2Nm9zaHOGOFV9FPmKBV0vAoakzjS-mziI4KlxAr7EH-RltBNtXAugCi63VwbnClG4702-1TMJlXQZlA5K3c', 9, 0),
 	(12, '5454', 'Islamul Hadi', 'C2', 'sasa', '5454', '864448038287385', NULL, 'f50B8MCk2bU:APA91bGOrY9CkzGDh_NkJsIOmWnywqY9mZQCEIz2JafS8ingdjmK96iyHcpJPnrPIEwIISp1ZDR0Y_ZbyB6nNWuPCk1l4D0Nt4gvsM0pl9riCnh15AJGgXnHT7JQANrd60LyvekQ5Vhy', 9, 0),
 	(13, '30107', 'I Made Putu Suarmika', 'B4', 'Ondo', 'ondo1975', '354462080667474', NULL, 'ck1_lj41BAA:APA91bHrQwCq3kYQdnubKtZ0iyrYZP8eyNmFq0X7zrrUbsVvQgwDn6hgOrWmFYKNfvXCF3JA-L7vPkdu8P5pWUYCcUtxFl8Hrl3N4PrDtkPGYDaVkv_rIJOaTnndErDIoBToM0Logxoc', 8, 0),
@@ -536,6 +568,8 @@ CREATE TABLE IF NOT EXISTS `pengumuman` (
 
 -- Dumping data for table absensi.pengumuman: ~0 rows (approximately)
 /*!40000 ALTER TABLE `pengumuman` DISABLE KEYS */;
+INSERT INTO `pengumuman` (`id`, `pengumuman`, `tgl`) VALUES
+	(1, 'Untuk cara yang satu ini, Anda cukup membuka menu dial yang kemudian dilanjutkan dengan mengetik *#06#. Tidak butuh waktu lama, akan muncul nomor IMEI di layar ponsel', '2021-03-16 07:14:21');
 /*!40000 ALTER TABLE `pengumuman` ENABLE KEYS */;
 
 -- Dumping structure for event absensi.posting_data
@@ -674,7 +708,8 @@ INSERT INTO `timeline` (`id`, `tgl`, `nip`, `ket_status`, `location`) VALUES
 	(123, '2019-03-25 11:29:22', '30059', 'Ngetik  pendapatan manual', '-8.6737889,115.2399741'),
 	(124, '2019-03-25 11:44:01', '30115', 'ngetik list bensin utk bln april', '-8.6737927,115.2399669'),
 	(125, '2019-03-25 11:45:24', '30051', 'input data penyesuaian', '-8.6494927,115.214415'),
-	(126, '2019-03-25 14:57:10', '30088', 'ke bengkel, mergaya, jl imambonjol perbaiki mbl dk 1881 bu', '-8.6736873,115.2399445');
+	(126, '2019-03-25 14:57:10', '30088', 'ke bengkel, mergaya, jl imambonjol perbaiki mbl dk 1881 bu', '-8.6736873,115.2399445'),
+	(127, '2021-03-16 07:13:35', '3322444', 'ngoding', '-8.5814941,116.0910878');
 /*!40000 ALTER TABLE `timeline` ENABLE KEYS */;
 
 -- Dumping structure for table absensi.ubahabsen
@@ -688,6 +723,8 @@ CREATE TABLE IF NOT EXISTS `ubahabsen` (
 
 -- Dumping data for table absensi.ubahabsen: ~0 rows (approximately)
 /*!40000 ALTER TABLE `ubahabsen` DISABLE KEYS */;
+INSERT INTO `ubahabsen` (`id_ubahabsen`, `nip_pegawai`, `id_lokasi`, `id_lokasi_sebelum`) VALUES
+	('20210316072006', '3322444', 13, 9);
 /*!40000 ALTER TABLE `ubahabsen` ENABLE KEYS */;
 
 -- Dumping structure for table absensi.user
@@ -700,8 +737,8 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Dumping data for table absensi.user: ~2 rows (approximately)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`nip`, `username`, `password`) VALUES
-	('30099', 'gudanta', '131313'),
-	('30048', 'ngurah', 'setan212');
+	('30048', 'ngurah', 'setan212'),
+	('3322444', 'zanul', 'zanul');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 -- Dumping structure for view absensi.vw_hakakses
